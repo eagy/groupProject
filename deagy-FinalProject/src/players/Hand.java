@@ -50,6 +50,12 @@ public class Hand {
 		aceValueCalc();
 	}
 	
+	public Card discard() {
+		size--;
+		total -= hand.get(0).getFaceValue().getFaceValue();
+		return hand.remove(0);
+	}
+	
 	/**
 	 * 
 	 * @return the size of the current hand.
@@ -80,6 +86,10 @@ public class Hand {
 	 */
 	public boolean softHand() {
 		return numAces > 0;
+	}
+	
+	public boolean splittable() {
+		return size == 2 && hand.get(0).getFaceValue() == hand.get(1).getFaceValue(); 
 	}
 	
 	/**

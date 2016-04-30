@@ -16,6 +16,7 @@ public class Blackjack {
 	public Blackjack(Hand dealer, Hand player) {
 		this.dealer = dealer;
 		this.player = player;
+
 		deck = new Deck();
 
 	}
@@ -68,6 +69,13 @@ public class Blackjack {
 		} else {
 			return false;
 		}
+	}
+	
+	
+	public Hand split(Hand player) {
+		Hand returnHand = new Hand();
+		returnHand.addCard(player.discard());
+		return returnHand;
 	}
 	
 	/**

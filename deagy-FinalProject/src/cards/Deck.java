@@ -3,6 +3,7 @@ package cards;
 import java.util.*;
 import javax.swing.*;
 
+
 /**
  * 
  * @author Daniel Eagy
@@ -29,12 +30,21 @@ public class Deck {
 	public Deck(int numDecks) {
 		this.numDecks = numDecks;
 
-		for (int i = 0; i < numDecks; i++) {
-			for (FaceValue card : FaceValue.values()) {
-				for (Suit suit : Suit.values()) {
-					this.deck.add(new Card(card, suit, new ImageIcon("" + card + suit + ".png")));
+		try {
+			for (int i = 0; i < numDecks; i++) {
+				for (FaceValue card : FaceValue.values()) {
+					for (Suit suit : Suit.values()) {
+						this.deck.add(new Card(card, suit, 
+								new ImageIcon(getClass().getResource("/cardpics/" 
+								+ card 
+								+ suit 
+								+ ".png"))));
+					}
 				}
 			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
